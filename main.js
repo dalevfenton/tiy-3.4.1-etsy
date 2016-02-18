@@ -61,4 +61,25 @@
     displayWin.innerHTML += '<span class="q-a">' + cV.title + ' costs ' + cV.price + '&pound;</span><br>';
   });
 
+  //------------------------------------------------------------
+  //        Question 4 - Wood Items
+  //------------------------------------------------------------
+  function sortWood( value ){
+    var wood = false;
+    value.materials.forEach(function(cV){
+       if(cV == 'wood'){
+         wood =  true;
+       }
+     });
+     return wood;
+  }
+  var woodItems = items.filter( sortWood );
+  console.log( 'Items that are tagged as Wood:' );
+  displayWin.innerHTML += '<h3 class="q-title">Question 4</h3><br>';
+  displayWin.innerHTML += '<span class="q-a">Items that tagged as Wood:</span><br>';
+  woodItems.forEach( function(cV){
+    console.log(cV.title);
+    displayWin.innerHTML += '<span class="q-a">' + cV.title + '</span><br>';
+  });
+
 }());
