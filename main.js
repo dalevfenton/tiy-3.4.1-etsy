@@ -78,7 +78,7 @@
   displayWin.innerHTML += '<span class="q-a">Items that tagged as Wood:</span><br>';
   woodItems.forEach( function(cV){
     console.log(cV.title + ' is made of wood.');
-    displayWin.innerHTML += '<span class="q-a">' + cV.title + '</span><br>';
+    displayWin.innerHTML += '<span class="q-a">' + cV.title + ' is made of wood</span><br>';
   });
 
 
@@ -103,6 +103,7 @@
     });
   });
 
+
   //------------------------------------------------------------
   //        Question 6 - Count Items Made By Seller
   //------------------------------------------------------------
@@ -117,4 +118,5 @@
   console.log(sellerMadeCount + ' were made by their sellers');
   displayWin.innerHTML += '<h3 class="q-title">Question 6</h3><br>';
   displayWin.innerHTML += '<span class="q-a">' + sellerMadeCount + ' items were made by their sellers</span><br>';
+
 }());
