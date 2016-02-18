@@ -46,7 +46,6 @@
   //        Question 3 - Item Priced in GBP
   //------------------------------------------------------------
   var filteredGBP = items.filter( function( value ){
-    console.log(value.currency_code);
     if( value.currency_code == "GBP" ){
       return true;
     }else{
@@ -78,8 +77,44 @@
   displayWin.innerHTML += '<h3 class="q-title">Question 4</h3><br>';
   displayWin.innerHTML += '<span class="q-a">Items that tagged as Wood:</span><br>';
   woodItems.forEach( function(cV){
-    console.log(cV.title);
+    console.log(cV.title + ' is made of wood.');
     displayWin.innerHTML += '<span class="q-a">' + cV.title + '</span><br>';
   });
 
+
+  //------------------------------------------------------------
+  //        Question 5 - Items with lots of materials ( > 8 )
+  //------------------------------------------------------------
+  function sortMaterials ( value ){
+    if( value.materials.length > 8 ){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  var lotsOfMats = items.filter( sortMaterials );
+  displayWin.innerHTML += '<h3 class="q-title">Question 5</h3><br>';
+  lotsOfMats.forEach(function(value){
+    console.log(value.title + ' has ' + value.materials.length + ' materials:' );
+    displayWin.innerHTML += '<span class="q-a">' + value.title + ' has ' + value.materials.length + ' materials:</span><br>';
+    value.materials.forEach( function( mat ){
+      console.log( mat );
+      displayWin.innerHTML += '<span class="q-a">' + mat + '</span><br>';
+    });
+  });
+
+  //------------------------------------------------------------
+  //        Question 6 - Count Items Made By Seller
+  //------------------------------------------------------------
+  var sellerMadeCount = items.filter(function(value){
+    if(value.who_made == 'i_did'){
+      return true;
+    }else{
+      return false;
+    }
+  }).length;
+
+  console.log(sellerMadeCount + ' were made by their sellers');
+  displayWin.innerHTML += '<h3 class="q-title">Question 6</h3><br>';
+  displayWin.innerHTML += '<span class="q-a">' + sellerMadeCount + ' items were made by their sellers</span><br>';
 }());
