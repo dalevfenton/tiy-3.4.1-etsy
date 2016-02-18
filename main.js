@@ -20,5 +20,26 @@
   displayWin.innerHTML += '<span class="q-a">The average price is $' + avgPrice + '</span><br>';
 
 
+  //------------------------------------------------------------
+  //        Question 2 - Array of Items Between $14-18
+  //------------------------------------------------------------
+  //not sure if you wanted $14 and $18 to be inclusive but wording
+  //in question prompt implies no
+  function filterItems(value){
+    if(value.price > 14 && value.price < 18){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  var filteredItems = items.filter( filterItems );
+  console.log( 'Items that cost between $14.00 and $18.00 USD' );
+  console.log( filteredItems );
+  displayWin.innerHTML += '<h3 class="q-title">Question 2</h3><br>';
+  displayWin.innerHTML += '<span class="q-a">Items that cost between $14.00 and $18.00 USD</span><br>';
+  filteredItems.forEach(function(cV){
+    displayWin.innerHTML += '<span class="q-a">' + cV.title + '</span><br>';
+  });
 
 }());
