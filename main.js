@@ -23,8 +23,7 @@
   //------------------------------------------------------------
   //        Question 2 - Array of Items Between $14-18
   //------------------------------------------------------------
-  //not sure if you wanted $14 and $18 to be inclusive but wording
-  //in question prompt implies no
+
   function filterItems(value){
     if(value.price > 14 && value.price < 18){
       return true;
@@ -40,6 +39,26 @@
   displayWin.innerHTML += '<span class="q-a">Items that cost between $14.00 and $18.00 USD</span><br>';
   filteredItems.forEach(function(cV){
     displayWin.innerHTML += '<span class="q-a">' + cV.title + '</span><br>';
+  });
+
+
+  //------------------------------------------------------------
+  //        Question 3 - Item Priced in GBP
+  //------------------------------------------------------------
+  var filteredGBP = items.filter( function( value ){
+    console.log(value.currency_code);
+    if( value.currency_code == "GBP" ){
+      return true;
+    }else{
+      return false;
+    }
+  });
+  console.log( 'Items that are priced in GBP:' );
+  console.log( filteredGBP[0].title + ' costs ' + filteredGBP[0].price + ' GBP' );
+  displayWin.innerHTML += '<h3 class="q-title">Question 3</h3><br>';
+  displayWin.innerHTML += '<span class="q-a">Items that cost are priced in GBP</span><br>';
+  filteredGBP.forEach(function(cV){
+    displayWin.innerHTML += '<span class="q-a">' + cV.title + ' costs ' + cV.price + '&pound;</span><br>';
   });
 
 }());
